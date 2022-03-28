@@ -6,7 +6,30 @@ using System.Threading.Tasks;
 
 namespace TheMementoPattern
 {
-    internal class Class1
+    public class SpeedRegulator
     {
+        private float speed;
+
+        public SpeedRegulator()
+        {
+            speed = new float(0.0f);
+        }
+
+
+
+        public class RegulatorState
+        {
+            private float speed;
+            public RegulatorState(float _speed)
+            {
+                speed = _speed;
+            }
+
+            private float getSpeed()
+            {
+                return speed;
+            }
+
+        }
     }
 }
