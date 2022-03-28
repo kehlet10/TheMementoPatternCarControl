@@ -15,17 +15,37 @@ namespace TheMementoPattern
             speed = new float(0.0f);
         }
 
-        public void setSpeed(float speed)
+        public void setSpeed(float _speed)
         {
-            Console.Writeline("");
+            Console.WriteLine($"Regulator started with speed: {speed} km/h");
+            speed = _speed;
         }
 
-        public void stopRegulator();
-        public void increaseSpeed();
-        public void decreaseSpeed();
-        public SpeedRegulator.RegulatorState saveSpeed();
+        public void stopRegulator()
+        {
+            Console.WriteLine("Regulator stopped");
+        }
+        public void increaseSpeed()
+        {
+            Console.WriteLine($"Speed was increased from {speed} km/h to {speed + 10.0f} km/h");
+            speed += 10.0f;
+        }
+        public void decreaseSpeed()
+        {
+            if (speed < 10.0f) return;
 
-        public void restoreSpeed(SpeedRegulator.RegulatorState regulatorState);
+            Console.WriteLine($"Speed was decreased from {speed} km/h to {speed - 10.0f} km/h");
+            speed -= 10.0f;
+        }
+        public SpeedRegulator.RegulatorState saveSpeed()
+        {
+            return new RegulatorState(speed);
+        }
+
+        public void restoreSpeed(SpeedRegulator.RegulatorState regulatorState)
+        {
+            speed = regulatorState.getSpeed();
+        }
 
 
         public class RegulatorState
@@ -36,7 +56,7 @@ namespace TheMementoPattern
                 speed = _speed;
             }
 
-            private float getSpeed()
+            internal float getSpeed()
             {
                 return speed;
             }
