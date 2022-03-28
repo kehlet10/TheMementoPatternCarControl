@@ -6,7 +6,34 @@ using System.Threading.Tasks;
 
 namespace TheMementoPattern
 {
-    internal class CarControlSystem
+    public class CarControlSystem
     {
+        private float currentSpeed;
+        private RegulatorState regulatorState;
+
+        CarControlSystem()
+        {
+            currentSpeed = regulatorState.getSpeed();
+        }
+
+        void startAutopilot()
+        {
+            return regulatorState;
+        }
+
+        void stopAutopilot()
+        {
+
+        }
+
+        void carDetected()
+        {
+
+        }
+
+        void roadClear()
+        {
+
+        }
     }
 }
