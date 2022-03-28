@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TheMementoPattern
 {
-    public class SpeedRegulator
+    public class SpeedRegulator: ISpeedRegulator
     {
         private float speed;
 
@@ -15,6 +15,17 @@ namespace TheMementoPattern
             speed = new float(0.0f);
         }
 
+        public void setSpeed(float speed)
+        {
+            Cons
+        }
+
+        public void stopRegulator();
+        public void increaseSpeed();
+        public void decreaseSpeed();
+        public SpeedRegulator.RegulatorState saveSpeed();
+
+        public void restoreSpeed(SpeedRegulator.RegulatorState regulatorState);
 
 
         public class RegulatorState
