@@ -9,34 +9,33 @@ namespace TheMementoPattern
     public class CarControlSystem
     {
         private float currentSpeed;
-        private RegulatorState regulatorState;
+        private IRegulatorState regulatorState;
         private ISpeedRegulator regulator;
 
-        CarControlSystem(ISpeedRegulator _regulator, float _currentSpeed)
+        public CarControlSystem(ISpeedRegulator _regulator, float _currentSpeed)
         {
             currentSpeed = _currentSpeed;
             regulator = _regulator;
         }
 
-        void startAutopilot()
+        public void startAutopilot()
         {
             Console.WriteLine("Starting autopilot...\n");
             regulator.setSpeed(currentSpeed);
         }
 
-        void stopAutopilot()
+        public void stopAutopilot()
         {
             Console.WriteLine("Stopping autopilot...\n");
         }
 
-        void carDetected()
+        public void carDetected()
         {
             Console.WriteLine("CarDetected...\n");
-            stopAutopilot();
-            regulator.saveSpeed();
+            regulatorState = regulator.saveSpeed();
         }
 
-        void roadClear()
+        public void roadClear()
         {
             Console.WriteLine("Road is clear. Restoring speed...\n");
             regulator.restoreSpeed(regulatorState);

@@ -13,8 +13,8 @@ namespace TheMementoPattern
         public void stopRegulator();
         public void increaseSpeed();
         public void decreaseSpeed();
-        public SpeedRegulator.RegulatorState saveSpeed();
+        public IRegulatorState saveSpeed();
 
-        public void restoreSpeed(SpeedRegulator.RegulatorState regulatorState);
+        public void restoreSpeed(IRegulatorState regulatorState);
     }
 }

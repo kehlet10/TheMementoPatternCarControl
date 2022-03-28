@@ -18,8 +18,8 @@ namespace TheMementoPattern
 
         public void setSpeed(float _speed)
         {
-            Console.WriteLine($"Regulator started with speed: {speed} km/h");
             speed = _speed;
+            Console.WriteLine($"Regulator started with speed: {speed} km/h");
         }
 
         public void stopRegulator()
@@ -40,13 +40,14 @@ namespace TheMementoPattern
         }
         public IRegulatorState saveSpeed()
         {
+            Console.WriteLine($"Speed: {speed} km/h has been saved in memento");
             return new RegulatorState(speed);
         }
 
-        public void restoreSpeed(RegulatorState regulatorState)
+        public void restoreSpeed(IRegulatorState regulatorState)
         {
-            speed = regulatorState.getSpeed();
-            Console.WriteLine("Regulator restored to previous ");
+            speed = ((RegulatorState)regulatorState).getSpeed();
+            Console.WriteLine($"Regulator restored to previous speed: {speed} km/h");
         }
 
     }
