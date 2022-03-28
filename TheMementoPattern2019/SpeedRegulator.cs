@@ -12,7 +12,8 @@ namespace TheMementoPattern
 
         public SpeedRegulator()
         {
-            speed = new float(0.0f);
+            speed = new float();
+            speed = 0.0f;
         }
 
         public void setSpeed(float _speed)
@@ -37,7 +38,7 @@ namespace TheMementoPattern
             Console.WriteLine($"Speed was decreased from {speed} km/h to {speed - 10.0f} km/h");
             speed -= 10.0f;
         }
-        public SpeedRegulator.RegulatorState saveSpeed()
+        public IRegulatorState saveSpeed()
         {
             return new RegulatorState(speed);
         }
@@ -48,20 +49,5 @@ namespace TheMementoPattern
             Console.WriteLine("Regulator restored to previous ");
         }
 
-
-        class RegulatorState
-        {
-            private float speed;
-            public RegulatorState(float _speed)
-            {
-                speed = _speed;
-            }
-
-            public float getSpeed()
-            {
-                return speed;
-            }
-
-        }
     }
 }
