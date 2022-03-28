@@ -17,7 +17,7 @@ namespace TheMementoPattern
 
         public void setSpeed(float speed)
         {
-            Cons
+            Console.Writeline("");
         }
 
         public void stopRegulator();
