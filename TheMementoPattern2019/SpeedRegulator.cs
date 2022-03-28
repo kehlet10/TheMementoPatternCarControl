@@ -42,13 +42,14 @@ namespace TheMementoPattern
             return new RegulatorState(speed);
         }
 
-        public void restoreSpeed(SpeedRegulator.RegulatorState regulatorState)
+        public void restoreSpeed(RegulatorState regulatorState)
         {
             speed = regulatorState.getSpeed();
+            Console.WriteLine("Regulator restored to previous ");
         }
 
 
-        public class RegulatorState
+        class RegulatorState
         {
             private float speed;
             public RegulatorState(float _speed)
@@ -56,7 +57,7 @@ namespace TheMementoPattern
                 speed = _speed;
             }
 
-            internal float getSpeed()
+            public float getSpeed()
             {
                 return speed;
             }
