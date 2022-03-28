@@ -9,7 +9,7 @@ namespace TheMementoPattern
     public class CarControlSystem
     {
         private float currentSpeed;
-        private SpeedRegulator.RegulatorState regulatorState;
+        private RegulatorState regulatorState;
         private ISpeedRegulator regulator;
 
         CarControlSystem(ISpeedRegulator _regulator, float _currentSpeed)

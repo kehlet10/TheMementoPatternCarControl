@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TheMementoPattern2019
+namespace TheMementoPattern
 {
     class Program
     {
